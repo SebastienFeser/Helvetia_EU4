@@ -1,0 +1,5 @@
+# Decision hel_negotiate_avignon
+hel_avignon_bought = {
+	opinion = 25
+	yearly_decay = 1
+}

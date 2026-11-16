@@ -24,6 +24,15 @@ hel_swi_internal_confederation = {
 				name = hel_stans_convenant
 				duration = 7300
 			}
+			# Claims for the first conquest missions (Romandie, Grisons)
+			switzerland_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			romandie_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 

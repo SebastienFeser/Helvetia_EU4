@@ -1,0 +1,44 @@
+country_decisions = {
+	# Avignon is bought from the Papacy, never conquered (unlocked by mission hel_swi_provence)
+	hel_negotiate_avignon = {
+		major = yes
+		potential = {
+			tag = SWI
+			mission_completed = hel_swi_provence
+			NOT = { owns = 202 }
+			202 = {
+				owner = {
+					OR = {
+						tag = PAP
+						tag = AVI
+						is_subject_of = PAP
+					}
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			treasury = 500
+			202 = {
+				owner = {
+					has_opinion = { who = ROOT value = 100 }
+					is_at_war = no
+				}
+			}
+		}
+		effect = {
+			add_treasury = -500
+			202 = {
+				owner = {
+					add_treasury = 500
+					add_opinion = { who = ROOT modifier = hel_avignon_bought }
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

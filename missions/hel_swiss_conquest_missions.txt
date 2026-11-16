@@ -1,0 +1,892 @@
+# Swiss conquest tree (rows 7+, below the internal tree). Generated layout: one column per front.
+# Military missions: every province of the target areas owned by ROOT or a subject.
+# Swiss-way missions (diplomatic route) also grant hel_swiss_way.
+
+hel_swi_conquest_west = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = SWI
+	}
+
+	hel_swi_romandie = {
+		icon = vaud_and_wallis
+		position = 7
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = { area = romandie_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			romandie_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = romandie_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = romandie_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			bourgogne_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hel_swiss_way
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_burgundian_wars = {
+		icon = expand_the_confederacy
+		position = 8
+		required_missions = { hel_swi_romandie }
+		provinces_to_highlight = {
+			OR = { area = bourgogne_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			bourgogne_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = bourgogne_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = bourgogne_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			alsace_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_alsace = {
+		icon = sway_geneva
+		position = 9
+		required_missions = { hel_swi_burgundian_wars }
+		provinces_to_highlight = {
+			OR = { area = alsace_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			alsace_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = alsace_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = alsace_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			savoy_dauphine_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hel_swiss_way
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_savoy_dauphine = {
+		icon = mission_conquer_50_development
+		position = 10
+		required_missions = { hel_swi_alsace }
+		provinces_to_highlight = {
+			OR = { area = savoy_dauphine_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			savoy_dauphine_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = savoy_dauphine_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = savoy_dauphine_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			provence_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } NOT = { province_id = 202 } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_provence = {
+		icon = mission_unite_home_region
+		position = 11
+		required_missions = { hel_swi_savoy_dauphine hel_swi_piedmont_genoa }
+		provinces_to_highlight = {
+			OR = { province_id = 201 province_id = 2991 province_id = 4696 }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			201 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+			2991 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+			4696 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { province_id = 201 province_id = 2991 province_id = 4696 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { province_id = 201 province_id = 2991 province_id = 4696 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			custom_tooltip = hel_unlock_avignon_tt
+		}
+	}
+
+}
+
+hel_swi_conquest_rhine = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = SWI
+	}
+
+	hel_swi_swabian_cities = {
+		icon = expand_the_confederacy
+		position = 7
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = { area = upper_swabia_area province_id = 4712 }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			upper_swabia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			4712 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = upper_swabia_area province_id = 4712 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = upper_swabia_area province_id = 4712 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			lower_swabia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			upper_rhineland_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hel_swiss_way
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_swabian_war = {
+		icon = mission_assemble_an_army
+		position = 8
+		required_missions = { hel_swi_swabian_cities }
+		provinces_to_highlight = {
+			OR = { area = lower_swabia_area area = upper_rhineland_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			lower_swabia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			upper_rhineland_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = lower_swabia_area area = upper_rhineland_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = lower_swabia_area area = upper_rhineland_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			palatinate_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_palatinate = {
+		icon = mission_conquer_50_development
+		position = 9
+		required_missions = { hel_swi_swabian_war }
+		provinces_to_highlight = {
+			OR = { area = palatinate_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			palatinate_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = palatinate_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = palatinate_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+		}
+	}
+
+}
+
+hel_swi_conquest_bavaria = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = SWI
+	}
+
+	hel_swi_salzburg_lower_bavaria = {
+		icon = mission_assemble_an_army
+		position = 7
+		required_missions = { hel_swi_swabian_cities }
+		provinces_to_highlight = {
+			OR = { area = lower_bavaria_area area = east_bavaria_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			lower_bavaria_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			east_bavaria_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = lower_bavaria_area area = east_bavaria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = lower_bavaria_area area = east_bavaria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			upper_bavaria_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_bavaria = {
+		icon = mission_conquer_50_development
+		position = 8
+		required_missions = { hel_swi_salzburg_lower_bavaria }
+		provinces_to_highlight = {
+			OR = { area = upper_bavaria_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			upper_bavaria_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = upper_bavaria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = upper_bavaria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			franconia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			upper_franconia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_franconia = {
+		icon = mission_dominate_home_trade_node
+		position = 9
+		required_missions = { hel_swi_bavaria }
+		provinces_to_highlight = {
+			OR = { area = franconia_area area = upper_franconia_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			franconia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			upper_franconia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = franconia_area area = upper_franconia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = franconia_area area = upper_franconia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			add_country_modifier = {
+				name = hel_brenner_route
+				duration = -1
+			}
+		}
+	}
+
+}
+
+hel_swi_conquest_habsburg = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = SWI
+	}
+
+	hel_swi_grisons = {
+		icon = integrate_the_three_leagues
+		position = 7
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = { province_id = 1873 province_id = 4722 }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			1873 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+			4722 = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { province_id = 1873 province_id = 4722 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { province_id = 1873 province_id = 4722 } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			tirol_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hel_swiss_way
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_tyrol = {
+		icon = protect_against_austria
+		position = 8
+		required_missions = { hel_swi_grisons }
+		provinces_to_highlight = {
+			OR = { area = tirol_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			tirol_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = tirol_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = tirol_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			austria_proper_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			inner_austria_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_austria = {
+		icon = protect_against_austria
+		position = 9
+		required_missions = { hel_swi_tyrol hel_swi_salzburg_lower_bavaria }
+		provinces_to_highlight = {
+			OR = { area = austria_proper_area area = inner_austria_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			austria_proper_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			inner_austria_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = austria_proper_area area = inner_austria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = austria_proper_area area = inner_austria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			carinthia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_slovenia = {
+		icon = mission_unite_home_region
+		position = 10
+		required_missions = { hel_swi_austria }
+		provinces_to_highlight = {
+			OR = { area = carinthia_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = carinthia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = carinthia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			add_country_modifier = {
+				name = hel_eastern_alps
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_end_of_habsburgs = {
+		icon = end_the_habsburgs
+		position = 11
+		required_missions = { hel_swi_slovenia }
+		provinces_to_highlight = {
+			province_id = 134
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns = 134
+			NOT = { exists = HAB }
+			NOT = { any_country = { dynasty = "von Habsburg" } }
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = hel_end_of_habsburgs
+				duration = -1
+			}
+			if = {
+				limit = { hre_size = 1 }
+				custom_tooltip = hel_dismantle_hre_tt
+				hidden_effect = { dismantle_hre = yes }
+			}
+		}
+	}
+
+}
+
+hel_swi_conquest_italy = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = SWI
+	}
+
+	hel_swi_ticino_milan = {
+		icon = mission_conquer_50_development
+		position = 7
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = { area = lombardy_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			lombardy_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = lombardy_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = lombardy_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			po_valley_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			piedmont_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = hel_swiss_way
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_po_valley = {
+		icon = mission_assemble_an_army
+		position = 8
+		required_missions = { hel_swi_ticino_milan }
+		provinces_to_highlight = {
+			OR = { area = po_valley_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			po_valley_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = po_valley_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = po_valley_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			venetia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_piedmont_genoa = {
+		icon = mission_cannons_firing
+		position = 9
+		required_missions = { hel_swi_po_valley }
+		provinces_to_highlight = {
+			OR = { area = piedmont_area area = liguria_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			piedmont_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+			liguria_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = piedmont_area area = liguria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = piedmont_area area = liguria_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			corsica_sardinia_area = {
+				limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	hel_swi_venetia = {
+		icon = mission_dominate_home_trade_node
+		position = 10
+		required_missions = { hel_swi_piedmont_genoa hel_swi_tyrol }
+		provinces_to_highlight = {
+			OR = { area = venetia_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			venetia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = venetia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = venetia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			add_country_modifier = {
+				name = hel_venetian_trade
+				duration = 7300
+			}
+		}
+	}
+
+	hel_swi_corsica_sardinia = {
+		icon = mission_establish_high_seas_navy
+		position = 11
+		required_missions = { hel_swi_venetia }
+		provinces_to_highlight = {
+			OR = { area = corsica_sardinia_area }
+			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = { OR = { area = corsica_sardinia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { area = corsica_sardinia_area } }
+				random_list = {
+					1 = { add_base_tax = 1 }
+					1 = { add_base_production = 1 }
+					1 = { add_base_manpower = 1 }
+				}
+			}
+			add_country_modifier = {
+				name = hel_mediterranean_outlet
+				duration = -1
+			}
+		}
+	}
+
+}
