@@ -650,6 +650,7 @@ republic = {
 				protectorate_parliament_reform
 				prussian_republic_reform
 				united_cantons_reform
+				hel_alpine_confederation_reform # HEL: Helvetia
 				kongsi_federation
 				millenarian_theocracy_reform
 				#1.35

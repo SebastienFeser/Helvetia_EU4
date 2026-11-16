@@ -2,7 +2,7 @@
 estate_hel_communes = {
 	icon = 4	# Cossacks icon reused (free armed peasants)
 	trigger = {
-		tag = SWI
+		hel_is_confederation = yes
 		NOT = { has_disabled_estate = { estate = estate_hel_communes } }
 	}
 	country_modifier_happy = {

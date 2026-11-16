@@ -1,0 +1,8 @@
+# Formable only (decision hel_form_alpine_confederation). Values used if the tag is ever created otherwise.
+government = republic
+add_government_reform = hel_alpine_confederation_reform
+government_rank = 2
+technology_group = western
+religion = reformed
+primary_culture = swiss
+capital = 165 # Bern

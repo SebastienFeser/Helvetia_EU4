@@ -205,7 +205,7 @@ estate_burghers = {
 	custom_name = { # HEL: Helvetia
 		desc = estate_hel_patriciate
 		trigger = {
-			tag = SWI
+			hel_is_confederation = yes
 		}
 	}
 	custom_name = {

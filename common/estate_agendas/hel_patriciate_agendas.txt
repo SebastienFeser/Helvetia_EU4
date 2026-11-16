@@ -3,7 +3,7 @@
 
 estate_burghers_hel_renew_capitulations = {
 	can_select = {
-		tag = SWI
+		hel_is_confederation = yes
 		any_known_country = {
 			is_great_power = yes
 			NOT = { war_with = root }

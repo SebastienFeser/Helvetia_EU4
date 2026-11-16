@@ -96,6 +96,14 @@ estate_hel_communes_direct_democracy = {
 		stability_cost_modifier = -0.15
 		global_unrest = -1
 	}
+	# Federal referendum: strengthened version for the Alpine Confederation
+	conditional_modifier = {
+		trigger = { tag = ALP }
+		modifier = {
+			republican_tradition = 0.25
+			hel_communes_loyalty_modifier = 0.05
+		}
+	}
 	on_revoked = {
 		add_stability = -1
 		add_country_modifier = {

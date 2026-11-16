@@ -6,7 +6,7 @@ hel_cantonal_autonomy_reform = {
 	allow_normal_conversion = yes
 	# Unlocked by mission hel_swi_integrate_cantons
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 		OR = {
 			has_country_flag = hel_cantonal_autonomy_unlocked
 			have_had_reform = hel_cantonal_autonomy_reform
@@ -55,7 +55,7 @@ hel_federal_militia_reform = {
 	icon = "castle"
 	allow_normal_conversion = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 	modifiers = {
 		global_manpower_modifier = 0.15
@@ -74,7 +74,7 @@ hel_armed_neutrality_reform = {
 	allow_normal_conversion = yes
 	# Unlocked by mission hel_swi_defensional_of_wil
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 		OR = {
 			has_country_flag = hel_armed_neutrality_unlocked
 			have_had_reform = hel_armed_neutrality_reform
@@ -96,6 +96,24 @@ hel_armed_neutrality_reform = {
 			name = hel_neutrality_broken
 			duration = 1825
 		}
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# Tier 1 (oligarchy_merchant_class_noble_elite), replaces united_cantons_reform for the Alpine Confederation.
+hel_alpine_confederation_reform = {
+	icon = "united_cantons_reform"
+	allow_normal_conversion = yes
+	potential = {
+		tag = ALP
+	}
+	modifiers = {
+		free_policy = 1
+		governing_capacity = 100
+		core_creation = -0.10
+		defensiveness = 0.10
 	}
 	ai = {
 		factor = 1

@@ -7,10 +7,10 @@ estate_burghers_hel_military_capitulations = {
 	influence = 0.05
 	loyalty = 0.05
 	is_valid = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 	can_select = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 	benefits = {
 		mercenary_cost = -0.15

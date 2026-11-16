@@ -1,0 +1,7 @@
+# Switzerland or its formable (Alpine Confederation). Use instead of "tag = SWI" so content survives the tag change.
+hel_is_confederation = {
+	OR = {
+		tag = SWI
+		tag = ALP
+	}
+}

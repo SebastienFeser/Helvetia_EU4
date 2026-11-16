@@ -7,7 +7,7 @@ hel_swi_internal_confederation = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_stans_convenant = {
@@ -158,7 +158,7 @@ hel_swi_internal_politics = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_patriciate_and_communes = {
@@ -274,7 +274,7 @@ hel_swi_internal_defence = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_alpine_bastions = {

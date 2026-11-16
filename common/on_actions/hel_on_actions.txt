@@ -13,7 +13,7 @@ on_province_owner_change = {
 # No nobility estate for Switzerland (same flag as vanilla disable_estate_effect)
 on_startup = {
 	if = {
-		limit = { tag = SWI }
+		limit = { hel_is_confederation = yes }
 		set_country_flag = disables_estate_nobles_flag
 	}
 }
@@ -21,7 +21,7 @@ on_startup = {
 # Peace chronometer for mission hel_swi_recognized_neutrality: flag date = start of current peace (any war resets it)
 on_monthly_pulse = {
 	if = {
-		limit = { tag = SWI }
+		limit = { hel_is_confederation = yes }
 		if = {
 			limit = { is_at_war = yes }
 			clr_country_flag = hel_peace_since

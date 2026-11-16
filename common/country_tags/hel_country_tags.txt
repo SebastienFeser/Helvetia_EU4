@@ -1,0 +1,2 @@
+# Alpine Confederation, formed by Switzerland (decision hel_form_alpine_confederation)
+ALP = "countries/AlpineConfederation.txt"

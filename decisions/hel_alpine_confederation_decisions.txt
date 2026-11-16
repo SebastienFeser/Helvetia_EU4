@@ -1,0 +1,56 @@
+country_decisions = {
+	# Modelled on vanilla decisions/ItalianNation.txt (form Italy)
+	hel_form_alpine_confederation = {
+		major = yes
+		potential = {
+			tag = SWI
+			NOT = { exists = ALP }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			has_reform = hel_armed_neutrality_reform
+			mission_completed = hel_swi_federal_diet
+			mission_completed = hel_swi_thirteen_cantons
+			# Last mission of every front, except "The End of the Habsburgs"
+			mission_completed = hel_swi_provence
+			mission_completed = hel_swi_palatinate
+			mission_completed = hel_swi_franconia
+			mission_completed = hel_swi_slovenia
+			mission_completed = hel_swi_corsica_sardinia
+		}
+		effect = {
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				emperor = {
+					add_opinion = {
+						who = root
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			change_tag = ALP
+			add_government_reform = hel_alpine_confederation_reform
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } # Swap ideas
+			}
+			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
+			set_country_flag = hel_formed_alpine_confederation
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+}

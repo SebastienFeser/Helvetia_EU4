@@ -8,7 +8,7 @@ hel_swi_conquest_west = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_romandie = {
@@ -213,7 +213,7 @@ hel_swi_conquest_rhine = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_swabian_cities = {
@@ -347,7 +347,7 @@ hel_swi_conquest_bavaria = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_salzburg_lower_bavaria = {
@@ -484,7 +484,7 @@ hel_swi_conquest_habsburg = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_grisons = {
@@ -684,7 +684,7 @@ hel_swi_conquest_italy = {
 	ai = yes
 	has_country_shield = yes
 	potential = {
-		tag = SWI
+		hel_is_confederation = yes
 	}
 
 	hel_swi_ticino_milan = {

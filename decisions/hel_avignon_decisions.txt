@@ -3,7 +3,7 @@ country_decisions = {
 	hel_negotiate_avignon = {
 		major = yes
 		potential = {
-			tag = SWI
+			hel_is_confederation = yes
 			mission_completed = hel_swi_provence
 			NOT = { owns = 202 }
 			202 = {
