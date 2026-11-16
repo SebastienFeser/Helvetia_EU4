@@ -1,0 +1,22 @@
+# Swiss additions to estate_burghers (shown as "Patriciate" for SWI). Listed in common/estates/03_burghers.txt.
+
+# Reislaufen contracts negotiated by the patrician families
+estate_burghers_hel_military_capitulations = {
+	icon = privilege_demand_more_troops
+	max_absolutism = -5
+	influence = 0.05
+	loyalty = 0.05
+	is_valid = {
+		tag = SWI
+	}
+	can_select = {
+		tag = SWI
+	}
+	benefits = {
+		mercenary_cost = -0.15
+		diplomatic_upkeep = 1
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}

@@ -1,0 +1,24 @@
+# Loyalty, influence and privilege-slot modifiers for estate_hel_communes (same pattern as vanilla estate_cossacks).
+estate_hel_communes = {
+	modifier_definition = {
+		type = loyalty
+		key = hel_communes_loyalty_modifier
+		trigger = {
+			has_estate = estate_hel_communes
+		}
+	}
+	modifier_definition = {
+		type = influence
+		key = hel_communes_influence_modifier
+		trigger = {
+			has_estate = estate_hel_communes
+		}
+	}
+	modifier_definition = {
+		type = privileges
+		key = hel_communes_privilege_slots
+		trigger = {
+			has_estate = estate_hel_communes
+		}
+	}
+}

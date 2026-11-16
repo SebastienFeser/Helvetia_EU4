@@ -1,0 +1,2 @@
+# Required by vanilla on_completed_agenda_effect, which calls on_completed_agenda_effect_$estate$.
+on_completed_agenda_effect_estate_hel_communes = {}

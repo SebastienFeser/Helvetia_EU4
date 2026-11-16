@@ -1,0 +1,119 @@
+# Communes privileges. The first five copy vanilla noble privileges (02_noble_privileges.txt, v1.37),
+# stripped of tag-specific conditions.
+
+# Copy of estate_nobles_land_rights
+estate_hel_communes_land_rights = {
+	icon = privilege_grant_autonomy
+	land_share = 5
+	max_absolutism = -5
+	loyalty = 0.05
+	influence = 0.05
+	benefits = {
+		governing_capacity = 100
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+# Copy of estate_nobles_nobility_primacy (+1 military power)
+estate_hel_communes_primacy = {
+	icon = privilege_military_power
+	land_share = 10
+	max_absolutism = -5
+	loyalty = -0.05
+	benefits = {
+		country_military_power = 1
+	}
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+# Copy of estate_nobles_levies
+estate_hel_communes_levies = {
+	icon = privilege_demand_more_troops
+	max_absolutism = -5
+	influence = 0.1
+	loyalty = 0.1
+	modifier_by_land_ownership = {
+		global_tax_modifier = -0.10
+		global_manpower_modifier = 0.5
+	}
+	mechanics = {
+		exempt_from_seize_land
+	}
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+# Copy of estate_nobles_officer_corp
+estate_hel_communes_officer_corp = {
+	icon = privilege_promote_purbias
+	max_absolutism = -5
+	influence = 0.05
+	can_select = {
+		army_tradition = 30
+	}
+	on_granted = {
+		add_army_tradition = -5
+	}
+	benefits = {
+		army_tradition_decay = -0.005
+		general_cost = -0.1
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+# Copy of estate_nobles_advisors
+estate_hel_communes_advisors = {
+	icon = privilege_recruit_minister
+	max_absolutism = -5
+	influence = 0.05
+	loyalty = 0.05
+	penalties = {
+		stability_cost_modifier = 0.1
+	}
+	benefits = {
+		mil_advisor_cost = -0.15
+	}
+	ai_will_do = {
+		factor = 9
+	}
+}
+
+# Direct democracy. Obligation: Communes agendas cost republican tradition when failed.
+estate_hel_communes_direct_democracy = {
+	icon = privilege_grant_autonomy
+	max_absolutism = -10
+	influence = 0.1
+	loyalty = 0.1
+	benefits = {
+		republican_tradition = 0.5
+		stability_cost_modifier = -0.15
+		global_unrest = -1
+	}
+	on_revoked = {
+		add_stability = -1
+		add_country_modifier = {
+			name = hel_people_betrayed
+			duration = 3650
+		}
+		every_owned_province = {
+			limit = { is_capital = no }
+			random = {
+				chance = 25
+				spawn_rebels = {
+					type = leadered_peasant_rebels
+					size = 1
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}

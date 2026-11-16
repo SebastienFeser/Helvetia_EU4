@@ -1,0 +1,79 @@
+# Swiss addition to estate_burghers agendas. Listed in common/estates/03_burghers.txt.
+# Opinion instead of alliance, so it stays compatible with armed neutrality.
+
+estate_burghers_hel_renew_capitulations = {
+	can_select = {
+		tag = SWI
+		any_known_country = {
+			is_great_power = yes
+			NOT = { war_with = root }
+			NOT = { is_rival = root }
+			NOT = { has_opinion = { who = root value = 100 } }
+		}
+	}
+	selection_weight = {
+		factor = 1
+	}
+	pre_effect = {
+		random_known_country = {
+			limit = {
+				is_great_power = yes
+				NOT = { war_with = root }
+				NOT = { is_rival = root }
+				NOT = { has_opinion = { who = root value = 100 } }
+			}
+			save_event_target_as = agenda_country
+		}
+	}
+	provinces_to_highlight = {
+		is_capital_of = event_target:agenda_country
+	}
+	fail_if = {
+		event_target:agenda_country = {
+			OR = {
+				NOT = { num_of_cities = 1 }
+				war_with = root
+			}
+		}
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_burghers
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_burghers
+			}
+		}
+		else = {
+			event_target:agenda_country = {
+				has_opinion = {
+					who = root
+					value = 100
+				}
+			}
+		}
+	}
+	task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_burghers
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 15
+		}
+	}
+	failing_effect = {
+		add_republican_tradition = -5
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+		add_estate_loyalty_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}

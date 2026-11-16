@@ -32,3 +32,8 @@ hel_confessional_neutrality = {
 hel_confessions_torn = {
 	global_unrest = 2
 }
+
+# Revoking privilege estate_hel_communes_direct_democracy (10 years)
+hel_people_betrayed = {
+	global_unrest = 2
+}

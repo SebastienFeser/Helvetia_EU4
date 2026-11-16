@@ -1,0 +1,53 @@
+# Swiss rural communes (Landleute). Holds the direct democracy privilege.
+estate_hel_communes = {
+	icon = 4	# Cossacks icon reused (free armed peasants)
+	trigger = {
+		tag = SWI
+		NOT = { has_disabled_estate = { estate = estate_hel_communes } }
+	}
+	country_modifier_happy = {
+		global_manpower_modifier = 0.10
+		global_unrest = -1
+	}
+	country_modifier_neutral = {
+		global_manpower_modifier = 0.10
+	}
+	country_modifier_angry = {
+		global_manpower_modifier = -0.10
+		global_unrest = 2
+	}
+	land_ownership_modifier = {
+		hel_communes_loyalty_modifier = 0.2
+	}
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+	}
+	base_influence = 10
+	influence_from_dev_modifier = 1.0
+	privileges = {
+		estate_hel_communes_land_rights
+		estate_hel_communes_primacy
+		estate_hel_communes_levies
+		estate_hel_communes_officer_corp
+		estate_hel_communes_advisors
+		estate_hel_communes_direct_democracy
+	}
+	agendas = {
+		estate_hel_communes_develop_x
+		estate_hel_communes_build_fort_building_in_y
+		estate_hel_communes_build_up_manpower_reserves
+		estate_hel_communes_crush_revolts
+		estate_hel_communes_retake_core
+		estate_hel_communes_relations_with_X
+		estate_hel_communes_hire_advisor
+	}
+	color = { 120 170 90 }
+}

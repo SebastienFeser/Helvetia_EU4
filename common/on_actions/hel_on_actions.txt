@@ -9,3 +9,11 @@ on_province_owner_change = {
 		add_province_triggered_modifier = hel_cantonal_tolerance
 	}
 }
+
+# No nobility estate for Switzerland (same flag as vanilla disable_estate_effect)
+on_startup = {
+	if = {
+		limit = { tag = SWI }
+		set_country_flag = disables_estate_nobles_flag
+	}
+}
