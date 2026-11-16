@@ -15,3 +15,7 @@
  hel_neutrality_offensive_war_desc:0 "Ein Angriffskrieg widerspricht unserer Neutralität. Volk und Orte missbilligen ihn."
  hel_cantonal_tolerance:0 "Kantonale Toleranz"
  hel_cantonal_tolerance_desc:0 "Hier spricht man eine andere Sprache als in der Hauptstadt, doch der Ort regiert sich selbst und ist nicht weniger eidgenössisch."
+ hel_reforms.1.t:0 "Kantonale Toleranz gewährt"
+ hel_reforms.1.d:0 ""
+ hel_reforms.2.t:0 "Kantonale Toleranz entzogen"
+ hel_reforms.2.d:0 ""

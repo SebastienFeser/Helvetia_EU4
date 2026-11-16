@@ -1,0 +1,45 @@
+# Hidden events fired by hel_cantonal_autonomy_reform.
+# Province triggered modifiers are loaded after government reforms, so the reform cannot
+# reference hel_cantonal_tolerance directly ("Invalid trigger" in error.log). Events load later.
+namespace = hel_reforms
+
+# Reform adopted: attach Cantonal Tolerance to every owned province
+country_event = {
+	id = hel_reforms.1
+	title = hel_reforms.1.t
+	desc = hel_reforms.1.d
+	picture = REFORM_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_owned_province = {
+			remove_province_triggered_modifier = hel_cantonal_tolerance
+			add_province_triggered_modifier = hel_cantonal_tolerance
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
+# Reform removed: detach Cantonal Tolerance
+country_event = {
+	id = hel_reforms.2
+	title = hel_reforms.2.t
+	desc = hel_reforms.2.d
+	picture = REFORM_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_owned_province = {
+			remove_province_triggered_modifier = hel_cantonal_tolerance
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+	}
+}

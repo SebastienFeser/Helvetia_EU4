@@ -18,17 +18,12 @@ hel_cantonal_autonomy_reform = {
 		global_unrest = -2
 		state_maintenance_modifier = -0.25
 	}
-	# Cancels the non-accepted culture penalty, see hel_cantonal_tolerance
+	# Cancels the non-accepted culture penalty (hel_cantonal_tolerance, attached by events/hel_reform_events.txt)
 	effect = {
-		every_owned_province = {
-			remove_province_triggered_modifier = hel_cantonal_tolerance
-			add_province_triggered_modifier = hel_cantonal_tolerance
-		}
+		hidden_effect = { country_event = { id = hel_reforms.1 } }
 	}
 	removed_effect = {
-		every_owned_province = {
-			remove_province_triggered_modifier = hel_cantonal_tolerance
-		}
+		hidden_effect = { country_event = { id = hel_reforms.2 } }
 		add_stability = -1
 		add_country_modifier = {
 			name = hel_cantons_betrayed

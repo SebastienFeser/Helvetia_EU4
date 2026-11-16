@@ -15,3 +15,7 @@
  hel_neutrality_offensive_war_desc:0 "A war of aggression contradicts our neutrality. The people and the cantons disapprove."
  hel_cantonal_tolerance:0 "Cantonal Tolerance"
  hel_cantonal_tolerance_desc:0 "A different language is spoken here than in the capital, but the canton governs itself and is no less a member of the Confederation."
+ hel_reforms.1.t:0 "Cantonal Tolerance Granted"
+ hel_reforms.1.d:0 ""
+ hel_reforms.2.t:0 "Cantonal Tolerance Withdrawn"
+ hel_reforms.2.d:0 ""
