@@ -1,0 +1,9 @@
+# Removal penalty of hel_cantonal_autonomy_reform (10 years)
+hel_cantons_betrayed = {
+	global_unrest = 2
+}
+
+# Removal penalty of hel_armed_neutrality_reform (5 years)
+hel_neutrality_broken = {
+	diplomatic_reputation = -2
+}

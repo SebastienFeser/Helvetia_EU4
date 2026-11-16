@@ -1,0 +1,24 @@
+# Armed neutrality: war-type effects, checked monthly.
+# "X offensive_war_with = ROOT" means X attacks ROOT (see vanilla flavorJAP.1).
+
+hel_neutrality_defensive_war = {
+	potential = {
+		has_reform = hel_armed_neutrality_reform
+	}
+	trigger = {
+		any_country = { offensive_war_with = ROOT }
+	}
+	land_morale = 0.10
+	war_exhaustion = -0.05
+}
+
+hel_neutrality_offensive_war = {
+	potential = {
+		has_reform = hel_armed_neutrality_reform
+	}
+	trigger = {
+		any_country = { defensive_war_with = ROOT }
+	}
+	war_exhaustion = 0.05
+	republican_tradition = -1
+}

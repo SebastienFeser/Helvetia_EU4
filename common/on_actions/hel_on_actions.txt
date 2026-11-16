@@ -1,0 +1,11 @@
+# Merged with vanilla on_actions (other mods rely on this, e.g. Advisor Types Expanded).
+
+on_province_owner_change = {
+	if = {
+		limit = {
+			owner = { has_reform = hel_cantonal_autonomy_reform }
+		}
+		remove_province_triggered_modifier = hel_cantonal_tolerance
+		add_province_triggered_modifier = hel_cantonal_tolerance
+	}
+}

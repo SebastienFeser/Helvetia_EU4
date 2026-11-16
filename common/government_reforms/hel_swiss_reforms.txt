@@ -1,0 +1,93 @@
+# Swiss government reforms. Tier placement is in common/governments/00_governments.txt.
+
+# Tier: federalism_vs_unitarism_vs_confederacy
+hel_cantonal_autonomy_reform = {
+	icon = "landscape"
+	allow_normal_conversion = yes
+	potential = {
+		tag = SWI
+	}
+	modifiers = {
+		min_autonomy = 10
+		development_cost = -0.15
+		global_unrest = -2
+		state_maintenance_modifier = -0.25
+	}
+	# Cancels the non-accepted culture penalty, see hel_cantonal_tolerance
+	effect = {
+		every_owned_province = {
+			remove_province_triggered_modifier = hel_cantonal_tolerance
+			add_province_triggered_modifier = hel_cantonal_tolerance
+		}
+	}
+	removed_effect = {
+		every_owned_province = {
+			remove_province_triggered_modifier = hel_cantonal_tolerance
+		}
+		add_stability = -1
+		add_country_modifier = {
+			name = hel_cantons_betrayed
+			duration = 3650
+		}
+		every_owned_province = {
+			limit = { is_capital = no }
+			random = {
+				chance = 25
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 1
+				}
+			}
+		}
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# Tier: military_doctrines
+hel_federal_militia_reform = {
+	icon = "castle"
+	allow_normal_conversion = yes
+	potential = {
+		tag = SWI
+	}
+	modifiers = {
+		global_manpower_modifier = 0.15
+		land_forcelimit_modifier = 0.15
+		manpower_recovery_speed = 0.10
+		land_maintenance_modifier = -0.10
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+# Tier: question_of_dictatorship (last). War-type effects: common/triggered_modifiers/hel_triggered_modifiers.txt
+hel_armed_neutrality_reform = {
+	icon = "neutral_ground"
+	allow_normal_conversion = yes
+	potential = {
+		tag = SWI
+	}
+	modifiers = {
+		diplomatic_reputation = 2
+		improve_relation_modifier = 0.25
+		defensiveness = 0.25
+		max_hostile_attrition = 1
+		trade_efficiency = 0.10
+		ae_impact = 0.50
+		diplomatic_upkeep = -1
+		stability_cost_to_declare_war = 1
+	}
+	removed_effect = {
+		add_stability = -1
+		add_country_modifier = {
+			name = hel_neutrality_broken
+			duration = 1825
+		}
+	}
+	ai = {
+		factor = 1
+	}
+}

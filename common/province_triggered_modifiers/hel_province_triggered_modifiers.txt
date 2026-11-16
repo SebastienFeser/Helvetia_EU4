@@ -1,0 +1,21 @@
+# Cantonal autonomy: exact inverse of vanilla static modifier non_accepted_culture.
+# Attached by hel_cantonal_autonomy_reform and on_province_owner_change.
+hel_cantonal_tolerance = {
+	potential = {
+		owner = { has_reform = hel_cantonal_autonomy_reform }
+	}
+	trigger = {
+		has_owner_accepted_culture = no
+	}
+
+	local_tax_modifier = 0.33
+	local_manpower_modifier = 0.33
+	local_sailors_modifier = 0.2
+	local_unrest = -2
+	local_missionary_strength = 0.02
+
+	on_activation = {
+	}
+	on_deactivation = {
+	}
+}
