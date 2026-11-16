@@ -1,0 +1,17 @@
+# Whitelist: only files read by EU4 are tracked.
+/*
+!/.gitignore
+!/descriptor.mod
+!/thumbnail.png
+!/common/
+!/customizable_localization/
+!/decisions/
+!/events/
+!/gfx/
+!/history/
+!/interface/
+!/localisation/
+!/map/
+!/missions/
+!/music/
+!/sound/
