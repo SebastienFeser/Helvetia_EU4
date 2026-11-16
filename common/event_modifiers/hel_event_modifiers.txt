@@ -7,3 +7,28 @@ hel_cantons_betrayed = {
 hel_neutrality_broken = {
 	diplomatic_reputation = -2
 }
+
+# Event hel_religion.1, Catholic path
+hel_golden_league = {
+	tolerance_own = 1
+	global_missionary_strength = 0.02
+}
+
+# Event hel_religion.1, Reformed path
+hel_helvetic_reformation = {
+	tolerance_own = 1
+	global_missionary_strength = 0.02
+}
+
+# Event hel_religion.1, neutral path. Christian-only via "heretic" modifiers.
+hel_confessional_neutrality = {
+	global_heretic_missionary_strength = -1
+	tolerance_heretic = 3
+	relation_with_heretics = 25
+	years_of_nationalism = -10
+}
+
+# Decision hel_renounce_confessional_neutrality (10 years)
+hel_confessions_torn = {
+	global_unrest = 2
+}

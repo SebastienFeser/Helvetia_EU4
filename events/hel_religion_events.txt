@@ -1,0 +1,78 @@
+# Swiss religious path, fired around the Council of Trent era (no DLC dependency).
+namespace = hel_religion
+
+# Choose your path: Catholic, Reformed or confessional neutrality
+country_event = {
+	id = hel_religion.1
+	title = hel_religion.1.t
+	desc = hel_religion.1.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SWI
+		is_year = 1545
+		religion_group = christian
+		OR = {
+			is_religion_enabled = protestant
+			is_religion_enabled = reformed
+		}
+		NOT = { has_country_flag = hel_religious_path_chosen }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = { set_country_flag = hel_religious_path_chosen }
+	}
+
+	# Catholic path (Golden League)
+	option = {
+		name = hel_religion.1.a
+		if = {
+			limit = { NOT = { religion = catholic } }
+			change_religion = catholic
+		}
+		add_country_modifier = {
+			name = hel_golden_league
+			duration = -1
+		}
+		ai_chance = {
+			factor = 1
+			modifier = { factor = 2 religion = catholic }
+		}
+	}
+
+	# Reformed path (Zwingli, Calvin)
+	option = {
+		name = hel_religion.1.b
+		trigger = { is_religion_enabled = reformed }
+		if = {
+			limit = { NOT = { religion = reformed } }
+			change_religion = reformed
+		}
+		add_country_modifier = {
+			name = hel_helvetic_reformation
+			duration = -1
+		}
+		ai_chance = {
+			factor = 1
+			modifier = { factor = 2 religion = reformed }
+		}
+	}
+
+	# Confessional neutrality (renounce via decision hel_renounce_confessional_neutrality)
+	option = {
+		name = hel_religion.1.c
+		add_country_modifier = {
+			name = hel_confessional_neutrality
+			duration = -1
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}

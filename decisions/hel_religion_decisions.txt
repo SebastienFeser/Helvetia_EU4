@@ -1,0 +1,23 @@
+country_decisions = {
+	# One-way: neutrality can never be taken again (event hel_religion.1 fires once)
+	hel_renounce_confessional_neutrality = {
+		major = yes
+		potential = {
+			has_country_modifier = hel_confessional_neutrality
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			remove_country_modifier = hel_confessional_neutrality
+			add_stability = -2
+			add_country_modifier = {
+				name = hel_confessions_torn
+				duration = 3650
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
