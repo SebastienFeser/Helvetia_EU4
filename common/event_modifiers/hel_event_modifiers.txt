@@ -37,3 +37,51 @@ hel_confessions_torn = {
 hel_people_betrayed = {
 	global_unrest = 2
 }
+
+# Internal mission tree rewards
+hel_stans_convenant = {
+	global_unrest = -1
+}
+hel_federal_diet = {
+	all_estate_loyalty_equilibrium = 0.05
+}
+hel_thirteen_cantons = {
+	development_cost = -0.05
+	governing_capacity = 50
+}
+hel_voice_of_the_people = {
+	republican_tradition = 0.25
+	stability_cost_modifier = -0.10
+}
+hel_confessional_peace = {
+	tolerance_heretic = 1
+	global_unrest = -1
+}
+hel_pacified_countryside = {
+	global_unrest = -1
+	hel_communes_loyalty_modifier = 0.05
+}
+hel_act_of_mediation = {
+	governing_capacity = 100
+	stability_cost_modifier = -0.10
+	development_cost = -0.05
+}
+hel_alpine_bastions = {
+	fort_maintenance_modifier = -0.15
+	defensiveness = 0.10
+}
+hel_swiss_guard = {
+	diplomatic_reputation = 1
+}
+hel_mercenary_companies = {
+	mercenary_cost = -0.10
+	mercenary_discipline = 0.05
+}
+hel_defensional_of_wil = {
+	defensiveness = 0.10
+}
+hel_recognized_neutrality = {
+	diplomatic_reputation = 1
+	defensiveness = 0.15
+	global_tax_modifier = 0.10
+}

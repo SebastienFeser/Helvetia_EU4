@@ -17,3 +17,18 @@ on_startup = {
 		set_country_flag = disables_estate_nobles_flag
 	}
 }
+
+# Peace chronometer for mission hel_swi_recognized_neutrality: flag date = start of current peace (any war resets it)
+on_monthly_pulse = {
+	if = {
+		limit = { tag = SWI }
+		if = {
+			limit = { is_at_war = yes }
+			clr_country_flag = hel_peace_since
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = hel_peace_since } }
+			set_country_flag = hel_peace_since
+		}
+	}
+}

@@ -4,8 +4,13 @@
 hel_cantonal_autonomy_reform = {
 	icon = "landscape"
 	allow_normal_conversion = yes
+	# Unlocked by mission hel_swi_integrate_cantons
 	potential = {
 		tag = SWI
+		OR = {
+			has_country_flag = hel_cantonal_autonomy_unlocked
+			have_had_reform = hel_cantonal_autonomy_reform
+		}
 	}
 	modifiers = {
 		min_autonomy = 10
@@ -67,8 +72,13 @@ hel_federal_militia_reform = {
 hel_armed_neutrality_reform = {
 	icon = "neutral_ground"
 	allow_normal_conversion = yes
+	# Unlocked by mission hel_swi_defensional_of_wil
 	potential = {
 		tag = SWI
+		OR = {
+			has_country_flag = hel_armed_neutrality_unlocked
+			have_had_reform = hel_armed_neutrality_reform
+		}
 	}
 	modifiers = {
 		diplomatic_reputation = 2
