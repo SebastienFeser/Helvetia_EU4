@@ -38,6 +38,7 @@ estate_hel_communes = {
 		estate_hel_communes_levies
 		estate_hel_communes_officer_corp
 		estate_hel_communes_advisors
+		estate_hel_communes_right_of_counsel
 		estate_hel_communes_direct_democracy
 	}
 	agendas = {

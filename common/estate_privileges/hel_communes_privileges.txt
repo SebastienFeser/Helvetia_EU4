@@ -85,6 +85,21 @@ estate_hel_communes_advisors = {
 	}
 }
 
+# Copy of estate_nobles_right_of_counsel (+10 loyalty, +10 influence)
+estate_hel_communes_right_of_counsel = {
+	icon = privilege_royal_authority
+	max_absolutism = -10
+	loyalty = 0.1
+	influence = 0.1
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
 # Direct democracy. Obligation: Communes agendas cost republican tradition when failed.
 estate_hel_communes_direct_democracy = {
 	icon = privilege_grant_autonomy

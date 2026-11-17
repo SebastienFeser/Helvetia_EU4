@@ -48,6 +48,8 @@ country_decisions = {
 			swap_non_generic_missions = yes
 			on_change_tag_effect = yes
 			set_country_flag = hel_formed_alpine_confederation
+			# Vanilla flag only used to block the Germany formation decision
+			set_country_flag = formed_germany_flag
 		}
 		ai_will_do = {
 			factor = 400

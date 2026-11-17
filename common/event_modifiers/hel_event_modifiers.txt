@@ -110,3 +110,52 @@ hel_mediterranean_outlet = {
 	naval_forcelimit_modifier = 0.20
 	global_sailors_modifier = 0.20
 }
+
+# Internal tree: diplomacy, knowledge and economy columns
+hel_perpetual_peace = {
+	diplomats = 1
+	diplomatic_reputation = 1
+}
+hel_latin_schools = {
+	technology_cost = -0.03
+}
+hel_humanist_scholars = {
+	advisor_cost = -0.10
+}
+hel_geneva_academy = {
+	idea_cost = -0.05
+}
+hel_cantonal_schools = {
+	global_tax_modifier = 0.10
+}
+hel_swiss_scholars = {
+	technology_cost = -0.05
+}
+hel_popular_instruction = {
+	development_cost = -0.05
+	hel_communes_loyalty_modifier = 0.05
+}
+hel_gotthard_toll = {
+	trade_efficiency = 0.05
+}
+# Province modifier
+hel_alpine_pastures = {
+	trade_goods_size = 0.5
+}
+hel_trade_fairs = {
+	merchants = 1
+}
+hel_alpine_roads = {
+	land_attrition = -0.10
+	global_supply_limit_modifier = 0.20
+}
+hel_huguenot_crafts = {
+	production_efficiency = 0.05
+}
+hel_swiss_banks = {
+	interest = -1
+	inflation_reduction = 0.05
+}
+hel_rhine_trade = {
+	trade_efficiency = 0.10
+}

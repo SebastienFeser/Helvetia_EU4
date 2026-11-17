@@ -772,7 +772,6 @@ republic = {
 		}
 		military_doctrines = {
 			reforms = {
-				hel_federal_militia_reform # HEL: Helvetia
 				organized_military_staff_reform
 				military_engineering_reform
 				defensive_stance_reform
@@ -864,11 +863,11 @@ republic = {
 				enforced_autocracy_reform
 				#1.37
 				seven_provinces_reform
+				hel_federal_militia_reform # HEL: Helvetia
 			}
 		}
 		federalism_vs_unitarism_vs_confederacy = {
 			reforms = {
-				hel_cantonal_autonomy_reform # HEL: Helvetia
 				provincial_governments_reform
 				administrative_divisions_reform
 				union_of_states_reform
@@ -877,6 +876,7 @@ republic = {
 				#1.36
 				superiority_of_the_state_reform
 				divided_aristocracy_reform
+				hel_cantonal_autonomy_reform # HEL: Helvetia
 			}
 		}
 		economical_matters_republic = {
@@ -959,7 +959,6 @@ republic = {
 		}
 		question_of_dictatorship = {
 			reforms = {
-				hel_armed_neutrality_reform # HEL: Helvetia
 				strengthen_executive_powers_reform
 				reinforce_republican_values_reform
 				federal_senate_reform
@@ -971,6 +970,7 @@ republic = {
 				scourge_of_the_seven_sea_reform
 				#1.35
 				peters_government_reform
+				hel_armed_neutrality_reform # HEL: Helvetia
 			}
 		}
 	}

@@ -154,6 +154,28 @@ hel_swi_internal_confederation = {
 			}
 		}
 	}
+
+	hel_swi_perpetual_peace = {
+		icon = mission_alliances
+		position = 6
+		required_missions = { hel_swi_thirteen_cantons }
+		trigger = {
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = hel_perpetual_peace_tt
+				any_known_country = {
+					is_great_power = yes
+					has_opinion = { who = ROOT value = 150 }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_perpetual_peace
+				duration = -1
+			}
+		}
+	}
 }
 
 # Column 2: Domestic politics
@@ -261,7 +283,6 @@ hel_swi_internal_politics = {
 		trigger = {
 			has_reform = hel_cantonal_autonomy_reform
 			stability = 3
-			is_year = 1750
 		}
 		effect = {
 			add_country_modifier = {
@@ -385,6 +406,271 @@ hel_swi_internal_defence = {
 	}
 }
 
+# Column 4: Knowledge and development
+hel_swi_internal_knowledge = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		hel_is_confederation = yes
+	}
+
+	hel_swi_latin_schools = {
+		icon = mission_court_education
+		position = 1
+		required_missions = { }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = { area = switzerland_area area = romandie_area }
+			NOT = { has_building = temple }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				OR = { area = switzerland_area area = romandie_area }
+				has_building = temple
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_latin_schools
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_humanist_scholars = {
+		icon = leiden_university
+		position = 2
+		required_missions = { hel_swi_latin_schools }
+		trigger = {
+			advisor = philosopher
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = hel_humanist_scholars
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_geneva_academy = {
+		icon = mission_early_modern_university
+		position = 3
+		required_missions = { hel_swi_humanist_scholars }
+		provinces_to_highlight = {
+			province_id = 4720
+			NOT = { development = 18 }
+		}
+		trigger = {
+			4720 = {
+				OR = { owned_by = ROOT owner = { is_subject_of = ROOT } }
+				development = 18
+			}
+		}
+		effect = {
+			4720 = { add_base_tax = 2 }
+			add_country_modifier = {
+				name = hel_geneva_academy
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_cantonal_schools = {
+		icon = Compulsory_Education
+		position = 4
+		required_missions = { hel_swi_geneva_academy }
+		trigger = {
+			total_development = 150
+			num_of_owned_provinces_with = {
+				value = 4
+				OR = { area = switzerland_area area = romandie_area }
+				has_building = temple
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_cantonal_schools
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_swiss_scholars = {
+		icon = mission_educated_people
+		position = 5
+		required_missions = { hel_swi_cantonal_schools }
+		trigger = {
+			advisor = natural_scientist
+			employed_advisor = { category = DIP }
+			employed_advisor = { category = MIL }
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_swiss_scholars
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_popular_instruction = {
+		icon = develop_our_capital
+		position = 6
+		required_missions = { hel_swi_swiss_scholars }
+		trigger = {
+			total_development = 250
+			estate_loyalty = { estate = estate_hel_communes loyalty = 60 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_popular_instruction
+				duration = -1
+			}
+		}
+	}
+}
+
+# Column 5: Economy and infrastructure
+hel_swi_internal_economy = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		hel_is_confederation = yes
+	}
+
+	hel_swi_gotthard_toll = {
+		icon = mission_end_the_sound_toll
+		position = 1
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 166
+			NOT = { has_building = marketplace }
+		}
+		trigger = {
+			166 = {
+				owned_by = ROOT
+				has_building = marketplace
+			}
+		}
+		effect = {
+			166 = { add_base_production = 1 }
+			add_country_modifier = {
+				name = hel_gotthard_toll
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_cattle_trade = {
+		icon = fra_develop_trade
+		position = 2
+		required_missions = { hel_swi_gotthard_toll }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				trade_goods = livestock
+			}
+		}
+		effect = {
+			every_owned_province = {
+				limit = { trade_goods = livestock }
+				add_permanent_province_modifier = {
+					name = hel_alpine_pastures
+					duration = -1
+				}
+			}
+		}
+	}
+
+	hel_swi_trade_fairs = {
+		icon = all_roads_lead_to_milan
+		position = 3
+		required_missions = { hel_swi_cattle_trade }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				has_building = marketplace
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_trade_fairs
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_alpine_roads = {
+		icon = fortify_the_passes
+		position = 4
+		required_missions = { hel_swi_trade_fairs }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_terrain = mountain
+			NOT = { development = 12 }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_terrain = mountain
+				development = 12
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_alpine_roads
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_huguenot_crafts = {
+		icon = mission_have_manufactories
+		position = 5
+		required_missions = { hel_swi_alpine_roads }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_production_building_trigger = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 1
+				has_manufactory_trigger = yes
+			}
+		}
+		effect = {
+			capital_scope = { add_base_production = 2 }
+			add_country_modifier = {
+				name = hel_huguenot_crafts
+				duration = -1
+			}
+		}
+	}
+
+	hel_swi_swiss_banks = {
+		icon = medici_bank_ledgers
+		position = 6
+		required_missions = { hel_swi_huguenot_crafts }
+		trigger = {
+			treasury = 500
+			NOT = { num_of_loans = 1 }
+			is_in_deficit = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = hel_swiss_banks
+				duration = -1
+			}
+		}
+	}
+}
+
 ############ CONQUEST TREE (rows 7-11) ############
 
 # Swiss conquest tree (rows 7+, below the internal tree). Generated layout: one column per front.
@@ -416,7 +702,7 @@ hel_swi_conquest_west = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = romandie_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -424,7 +710,7 @@ hel_swi_conquest_west = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = romandie_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -458,7 +744,7 @@ hel_swi_conquest_west = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = bourgogne_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -466,7 +752,7 @@ hel_swi_conquest_west = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = bourgogne_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -496,7 +782,7 @@ hel_swi_conquest_west = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = alsace_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -504,7 +790,7 @@ hel_swi_conquest_west = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = alsace_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -538,7 +824,7 @@ hel_swi_conquest_west = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = savoy_dauphine_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -546,7 +832,7 @@ hel_swi_conquest_west = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = savoy_dauphine_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -575,7 +861,7 @@ hel_swi_conquest_west = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { province_id = 201 province_id = 2991 province_id = 4696 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -583,7 +869,7 @@ hel_swi_conquest_west = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { province_id = 201 province_id = 2991 province_id = 4696 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -622,7 +908,7 @@ hel_swi_conquest_rhine = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = upper_swabia_area province_id = 4712 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -630,7 +916,7 @@ hel_swi_conquest_rhine = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = upper_swabia_area province_id = 4712 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -672,7 +958,7 @@ hel_swi_conquest_rhine = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = lower_swabia_area area = upper_rhineland_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -680,7 +966,7 @@ hel_swi_conquest_rhine = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = lower_swabia_area area = upper_rhineland_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -709,8 +995,12 @@ hel_swi_conquest_rhine = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = hel_rhine_trade
+				duration = -1
+			}
 			random_owned_province = {
-				limit = { OR = { area = palatinate_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -718,7 +1008,7 @@ hel_swi_conquest_rhine = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = palatinate_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -759,7 +1049,7 @@ hel_swi_conquest_bavaria = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = lower_bavaria_area area = east_bavaria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -767,7 +1057,7 @@ hel_swi_conquest_bavaria = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = lower_bavaria_area area = east_bavaria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -797,7 +1087,7 @@ hel_swi_conquest_bavaria = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = upper_bavaria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -805,7 +1095,7 @@ hel_swi_conquest_bavaria = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = upper_bavaria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -843,7 +1133,7 @@ hel_swi_conquest_bavaria = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = franconia_area area = upper_franconia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -851,7 +1141,7 @@ hel_swi_conquest_bavaria = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = franconia_area area = upper_franconia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -890,7 +1180,7 @@ hel_swi_conquest_habsburg = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { province_id = 1873 province_id = 4722 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -898,7 +1188,7 @@ hel_swi_conquest_habsburg = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { province_id = 1873 province_id = 4722 } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -932,7 +1222,7 @@ hel_swi_conquest_habsburg = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = tirol_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -940,7 +1230,7 @@ hel_swi_conquest_habsburg = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = tirol_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -978,7 +1268,7 @@ hel_swi_conquest_habsburg = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = austria_proper_area area = inner_austria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -986,7 +1276,7 @@ hel_swi_conquest_habsburg = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = austria_proper_area area = inner_austria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1016,7 +1306,7 @@ hel_swi_conquest_habsburg = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = carinthia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1024,7 +1314,7 @@ hel_swi_conquest_habsburg = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = carinthia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1092,7 +1382,7 @@ hel_swi_conquest_italy = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = lombardy_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1100,7 +1390,7 @@ hel_swi_conquest_italy = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = lombardy_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1138,7 +1428,7 @@ hel_swi_conquest_italy = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = po_valley_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1146,7 +1436,7 @@ hel_swi_conquest_italy = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = po_valley_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1180,7 +1470,7 @@ hel_swi_conquest_italy = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = piedmont_area area = liguria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1188,7 +1478,7 @@ hel_swi_conquest_italy = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = piedmont_area area = liguria_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1205,7 +1495,7 @@ hel_swi_conquest_italy = {
 	hel_swi_venetia = {
 		icon = mission_dominate_home_trade_node
 		position = 10
-		required_missions = { hel_swi_piedmont_genoa hel_swi_tyrol }
+		required_missions = { hel_swi_piedmont_genoa }
 		provinces_to_highlight = {
 			OR = { area = venetia_area }
 			NOT = { OR = { owned_by = ROOT owner = { is_subject_of = ROOT } } }
@@ -1218,7 +1508,7 @@ hel_swi_conquest_italy = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = venetia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1226,7 +1516,7 @@ hel_swi_conquest_italy = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = venetia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1256,7 +1546,7 @@ hel_swi_conquest_italy = {
 		}
 		effect = {
 			random_owned_province = {
-				limit = { OR = { area = corsica_sardinia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }
@@ -1264,7 +1554,7 @@ hel_swi_conquest_italy = {
 				}
 			}
 			random_owned_province = {
-				limit = { OR = { area = corsica_sardinia_area } }
+				limit = { OR = { area = switzerland_area area = romandie_area } }
 				random_list = {
 					1 = { add_base_tax = 1 }
 					1 = { add_base_production = 1 }

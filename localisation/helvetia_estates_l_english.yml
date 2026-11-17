@@ -19,6 +19,8 @@
  estate_hel_communes_officer_corp_desc:0 "Captains elected by the communes lead the militia and pass on the experience of past campaigns."
  estate_hel_communes_advisors:0 "Counsellors of the Valleys"
  estate_hel_communes_advisors_desc:0 "Former captains of the communes advise the Diet on military matters."
+ estate_hel_communes_right_of_counsel:0 "Communal Right of Counsel"
+ estate_hel_communes_right_of_counsel_desc:0 "Delegates of the communes sit by right in the councils of the Confederation and are consulted on every important matter."
  estate_hel_communes_direct_democracy:0 "Direct Democracy"
  estate_hel_communes_direct_democracy_desc:0 "The assembled people vote on laws and great decisions. This is the strength of the Confederation, but also a constraint: ignoring the will of the people costs dearly in republican legitimacy."
 

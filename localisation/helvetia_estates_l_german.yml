@@ -19,6 +19,8 @@
  estate_hel_communes_officer_corp_desc:0 "Von den Gemeinden gewählte Hauptleute führen die Miliz und geben die Erfahrung vergangener Feldzüge weiter."
  estate_hel_communes_advisors:0 "Ratgeber der Täler"
  estate_hel_communes_advisors_desc:0 "Ehemalige Hauptleute der Gemeinden beraten die Tagsatzung in militärischen Fragen."
+ estate_hel_communes_right_of_counsel:0 "Ratsrecht der Gemeinden"
+ estate_hel_communes_right_of_counsel_desc:0 "Die Abgeordneten der Gemeinden sitzen von Rechts wegen in den Räten der Eidgenossenschaft und werden in allen wichtigen Fragen angehört."
  estate_hel_communes_direct_democracy:0 "Direkte Demokratie"
  estate_hel_communes_direct_democracy_desc:0 "Das versammelte Volk stimmt über Gesetze und grosse Entscheidungen ab. Das ist die Stärke der Eidgenossenschaft, aber auch eine Pflicht: Wer den Volkswillen missachtet, verliert viel republikanische Legitimität."
 
