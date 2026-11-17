@@ -1,63 +1,7 @@
-# Swiss diet and direct-democracy votes. Replaces vanilla "Summon the Diet"
-# (estate_privileges_and_agendas_events.3), which has no option for the Communes.
-# hel_diet.1: summoned by decision, without direct democracy (an agenda must be picked).
-# hel_diet.2: fires by itself with direct democracy; votes can be refused.
+# Direct-democracy votes: automatic, they replace vanilla "Summon the Diet"
+# (estate_privileges_and_agendas_events.3, hidden with direct democracy by blocked_call_diet).
+# Unlike the vanilla diet, they include the Communes and can be refused.
 namespace = hel_diet
-
-country_event = {
-	id = hel_diet.1
-	title = hel_diet.1.t
-	desc = hel_diet.1.d
-	picture = NOBLE_ESTATE_DEMANDS_eventPicture
-	is_triggered_only = yes
-
-	immediate = {
-		hidden_effect = {
-			hel_mark_diet_held = yes
-			if = {
-				limit = { has_estate = estate_church }
-				set_country_flag = hel_church_present_agenda
-				generate_estate_agenda = estate_church
-			}
-			if = {
-				limit = { has_estate = estate_burghers }
-				set_country_flag = hel_burghers_present_agenda
-				generate_estate_agenda = estate_burghers
-			}
-			if = {
-				limit = { has_estate = estate_hel_communes }
-				set_country_flag = hel_communes_present_agenda
-				generate_estate_agenda = estate_hel_communes
-			}
-		}
-	}
-
-	after = {
-		clr_country_flag = hel_church_present_agenda
-		clr_country_flag = hel_burghers_present_agenda
-		clr_country_flag = hel_communes_present_agenda
-		clear_estate_agenda_cache = ROOT
-	}
-
-	option = {
-		name = estate_privileges_and_agendas_events.3.b
-		trigger = { has_country_flag = hel_church_present_agenda }
-		start_estate_agenda = estate_church
-		ai_chance = { factor = 1 }
-	}
-	option = {
-		name = estate_privileges_and_agendas_events.3.e
-		trigger = { has_country_flag = hel_burghers_present_agenda }
-		start_estate_agenda = estate_burghers
-		ai_chance = { factor = 1 }
-	}
-	option = {
-		name = hel_diet_option_communes
-		trigger = { has_country_flag = hel_communes_present_agenda }
-		start_estate_agenda = estate_hel_communes
-		ai_chance = { factor = 1 }
-	}
-}
 
 country_event = {
 	id = hel_diet.2

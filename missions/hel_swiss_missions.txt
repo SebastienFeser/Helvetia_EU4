@@ -84,9 +84,9 @@ hel_swi_internal_confederation = {
 		position = 3
 		required_missions = { hel_swi_integrate_cantons }
 		trigger = {
-			estate_loyalty = { estate = estate_church loyalty = 50 }
-			estate_loyalty = { estate = estate_burghers loyalty = 50 }
-			estate_loyalty = { estate = estate_hel_communes loyalty = 50 }
+			estate_loyalty = { estate = estate_church loyalty = 60 }
+			estate_loyalty = { estate = estate_burghers loyalty = 60 }
+			estate_loyalty = { estate = estate_hel_communes loyalty = 60 }
 		}
 		effect = {
 			add_adm_power = 50
@@ -193,8 +193,8 @@ hel_swi_internal_politics = {
 		position = 1
 		required_missions = { }
 		trigger = {
-			estate_loyalty = { estate = estate_burghers loyalty = 50 }
-			estate_loyalty = { estate = estate_hel_communes loyalty = 50 }
+			estate_loyalty = { estate = estate_burghers loyalty = 60 }
+			estate_loyalty = { estate = estate_hel_communes loyalty = 60 }
 		}
 		effect = {
 			add_adm_power = 50

@@ -129,7 +129,14 @@ hel_alpine_confederation_reform = {
 	}
 	custom_attributes = {
 		disables_estate_nobles = yes
-		blocked_call_diet = yes
+	}
+	# With direct democracy, votes (hel_diet.2) replace the vanilla diet.
+	# Untested: conditional is only used with has_dlc in vanilla.
+	conditional = {
+		allow = { has_estate_privilege = estate_hel_communes_direct_democracy }
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
 	}
 	ai = {
 		factor = 1
