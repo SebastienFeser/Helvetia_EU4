@@ -45,6 +45,23 @@ hel_cantonal_autonomy_reform = {
 	}
 }
 
+# Tier: republican_virtues
+hel_communal_liberties_reform = {
+	icon = "peasant_republic"
+	allow_normal_conversion = yes
+	potential = {
+		hel_is_confederation = yes
+	}
+	modifiers = {
+		hel_communes_privilege_slots = 1
+		hel_communes_loyalty_modifier = 0.10
+		global_unrest = -1
+	}
+	ai = {
+		factor = 1
+	}
+}
+
 # Tier: military_doctrines
 hel_federal_militia_reform = {
 	icon = "castle"
@@ -112,6 +129,7 @@ hel_alpine_confederation_reform = {
 	}
 	custom_attributes = {
 		disables_estate_nobles = yes
+		blocked_call_diet = yes
 	}
 	ai = {
 		factor = 1

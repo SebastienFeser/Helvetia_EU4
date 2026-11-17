@@ -706,6 +706,7 @@ republic = {
 				german_other_reform
 				#1.37
 				support_state_reform
+				hel_communal_liberties_reform # HEL: Helvetia
 			}
 		}
 		frequent_elections_vs_consolidation_of_power = {
@@ -840,6 +841,7 @@ republic = {
 				#1.37 Bohemia
 				vozove_hradby_reform
 				russian_mercenary_guard_reform 
+				hel_federal_militia_reform # HEL: Helvetia
 			}
 		}
 		parliamentary_vs_presidential = {
@@ -863,7 +865,6 @@ republic = {
 				enforced_autocracy_reform
 				#1.37
 				seven_provinces_reform
-				hel_federal_militia_reform # HEL: Helvetia
 			}
 		}
 		federalism_vs_unitarism_vs_confederacy = {

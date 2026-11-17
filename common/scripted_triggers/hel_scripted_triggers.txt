@@ -5,3 +5,14 @@ hel_is_confederation = {
 		tag = ALP
 	}
 }
+
+# 5 years since the last diet or vote (vanilla diet cooldown is 60 months)
+hel_diet_off_cooldown = {
+	custom_trigger_tooltip = {
+		tooltip = hel_diet_cooldown_tt
+		OR = {
+			NOT = { has_country_flag = hel_diet_held }
+			had_country_flag = { flag = hel_diet_held days = 1825 }
+		}
+	}
+}

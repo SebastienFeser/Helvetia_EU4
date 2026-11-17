@@ -1,2 +1,8 @@
 # Required by vanilla on_completed_agenda_effect, which calls on_completed_agenda_effect_$estate$.
 on_completed_agenda_effect_estate_hel_communes = {}
+
+# Restart the diet/vote cooldown
+hel_mark_diet_held = {
+	clr_country_flag = hel_diet_held
+	set_country_flag = hel_diet_held
+}

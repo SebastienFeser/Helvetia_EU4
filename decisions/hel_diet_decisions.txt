@@ -1,0 +1,24 @@
+# Summon the Swiss diet (replaces the vanilla button, hidden by blocked_call_diet).
+# Not available with direct democracy: votes then come by themselves (hel_diet.2).
+country_decisions = {
+	hel_call_federal_diet = {
+		potential = {
+			OR = {
+				hel_is_confederation = yes
+				has_reform = united_cantons_reform
+			}
+			NOT = { has_estate_privilege = estate_hel_communes_direct_democracy }
+		}
+		allow = {
+			NOT = { has_any_active_estate_agenda = yes }
+			has_not_any_estate_disaster_active = yes
+			hel_diet_off_cooldown = yes
+		}
+		effect = {
+			country_event = { id = hel_diet.1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
